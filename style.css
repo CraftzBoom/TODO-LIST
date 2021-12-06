@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to right top,#28FAC7,#34BAF5);
+}
+
+header,
+.container-form,
+.container {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+
+header h1 {
+    margin-top: 3rem;
+    color: #426696;
+    font-size: 3em;
+    font-weight: 800;
+    letter-spacing: 0.8rem;
+}
+
+
+
+form input,
+form button {
+    margin: 1rem -0.4rem;
+    border: none;
+    padding: 0.6rem;
+    background: white;
+    font-size: 1rem;
+    border-radius: 6px;
+    outline: none;
+    z-index: 10;
+} 
+
+form input {
+    padding-right: 1.5rem;
+}
+
+form button{
+    background: #64E3D8;
+    color: black;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+form button:hover {
+    background: white;
+    color: #64E3D8;
+}
+
+
+
+.container-todo{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;    
+    min-height: 20vh;
+    width: 40vw;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7) , 
+                                        rgb(255, 255, 255, 0.3));
+    backdrop-filter: blur(2rem);
+    border-radius: 2rem;
+    margin-bottom: 5rem;
+    opacity: 1;
+}  
+
+.container-active {
+    opacity: 1;
+}
+
+
+.container-todo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    word-break: break-all;
+}
+
+.todo-list {
+    width: 70%;
+    list-style: none; 
+    margin: 2rem; 
+}
+
+.todo {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    transition: all 0.8s ease;
+}
+
+.todo li {
+    flex: 1;   
+}
+
+.completed,
+.trash {
+    padding: 0.5rem;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: rgb(255, 111, 71);
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+.completed {
+    background: rgb(100, 227, 216);
+}
+
+.completed:hover {
+    background: #fff;
+    color: rgb(100, 227, 216);
+}
+
+.trash:hover {
+    background: #fff;
+    color: rgb(255, 111, 71);
+}
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+.todo-item {
+    padding: 0.5rem;
+}
+
+
+.taskCompleted {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.fall {
+    transform: translateY(10rem) rotateZ(20deg);
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
