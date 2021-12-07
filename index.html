@@ -18,7 +18,7 @@
   <body>
 
     <header class="text">
-      <h1>TODO LIST</h1>
+      <h1>TODO-LIST</h1>
     </header>
 
     <div class="container-form">
@@ -27,16 +27,19 @@
        <button type="submit" class="todo-button">
          <i class="fas fa-plus-square"></i>
        </button>
-       
+       <div class="select">
+       <select name="todos" class="todo-filter">
+         <option value="all">All</option>
+         <option value="completed">Completed</option>
+         <option value="uncompleted">Uncompleted</option>
+       </select>
+      </div>
     </form>
     </div>
 
     <div class="container-todo">
       <ul class="todo-list"></ul>
     </div>
-
-    
-
 
 
     <!-- JAVASCRIPT -->

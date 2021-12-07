@@ -12,7 +12,8 @@ body {
     background: linear-gradient(to right top,#28FAC7,#34BAF5);
 }
 
-header,
+header, 
+form,
 .container-form,
 .container {
     height: 20vh;
@@ -46,6 +47,10 @@ form button {
 
 form input {
     padding-right: 1.5rem;
+}
+
+form input::placeholder {
+    color: #426696;
 }
 
 form button{
@@ -142,6 +147,7 @@ form button:hover {
 
 .todo-item {
     padding: 0.5rem;
+    color: #426696;
 }
 
 
@@ -155,6 +161,49 @@ form button:hover {
     opacity: 0;
 }
 
+/* ? CUSTOM SELECT */
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 0;
+    outline: none;
+    background-image: none;
+    border-radius: 6px;
+}
+
+.select {
+    margin: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+select {
+    color: #426696;
+    width: 10rem;
+    cursor: pointer;
+    padding: 0.7rem;
+}
+
+.select::after {
+    content: "\25BC";
+    position: absolute;
+    background: #64E3D8;
+    padding: 0.7rem 0.5rem;
+    top: -2px;
+    right: 0;
+    cursor: pointer;
+    pointer-events: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 7px;
+    transition: all 0.5s ease;
+}
+
+.select:hover::after {
+    background: #fff;
+    color: #64E3D8;
+}
 
 
 
