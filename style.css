@@ -195,7 +195,7 @@ select {
     right: 0;
     cursor: pointer;
     pointer-events: none;
-    border-top-right-radius: 10px;
+    border-top-right-radius: 8px;
     border-bottom-right-radius: 7px;
     transition: all 0.5s ease;
 }

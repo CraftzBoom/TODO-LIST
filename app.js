@@ -16,7 +16,7 @@ const addListAfterClick = (e) => {
   e.preventDefault(); // ? using this method to prevent function from misbehaving!!
   // Prevent from creating blank task
   if (inputLength() > 0) {
-    addTodo();
+     addTodo();
   }
 }
 
@@ -28,9 +28,13 @@ const addTodo = (e) => {
   // Todo div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
+
   // Todo list
   const newTodo = document.createElement("li");
   newTodo.innerText = todoInput.value;
+ 
+  // ? Save to local 
+  saveLocalTodo(todoInput.value); 
 
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
@@ -59,6 +63,8 @@ const trashTodo = (e) => {
     // ? e.target.parentElement.remove() //
     const todo = item.parentElement;
     todo.classList.add("fall");
+    // ? Remove from local
+    removeLocalTodo(todo);
     // ParentElement get removed after animation end!!
     todo.addEventListener("transitionend", (e) => {
       todo.remove();
@@ -97,8 +103,37 @@ const todoFilter = (e) => {
     });
 }
 
+ // FIXME: make it work on firefox browser!!
+
+// Save todos list to local storage
+const saveLocalTodo = (todo) => {
+  //Check--- Do I already have thing in there??
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+
+  todos.push(todo);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+// Remove from local storage
+const removeLocalTodo = (todo) => {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+    todos = [];
+  } else {
+    todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  let todoIndex = todo.children[0].innerText;
+  todos.splice(todos.indexOf(todoIndex), 1);
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 // ? EVENT LISTENERS!!!
 todoButton.addEventListener("click", addListAfterClick);
 todoList.addEventListener("click", trashTodo);
 todoOptions.addEventListener('click', todoFilter);
+
