@@ -8,6 +8,7 @@
 }
 
 body {
+    scroll-behavior: smooth;
     min-height: 100vh;
     background: linear-gradient(to right top,#28FAC7,#34BAF5);
 }
@@ -66,25 +67,55 @@ form button:hover {
 }
 
 
+/* Scrollbar Styling */
+
+/* width */
+/* ::-webkit-scrollbar {
+    width: 15px;
+} */
+  
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+    background: #64E3D8; 
+    border-top-right-radius: 100px;
+    border-top-left-radius: -10rem;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: -10rem;
+} */
+   
+  /* Handle */
+  /* ::-webkit-scrollbar-thumb {
+    background: #426696;
+    border-radius: 10px; 
+    border-top-right-radius: 100px;
+    border-top-left-radius: -10rem;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: -10rem;
+} */
+  
+  /* Handle on hover */
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+} */
 
 .container-todo{
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     background: #fff;    
-    min-height: 20vh;
+    min-height: 30vh;
     width: 40vw;
     background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7) , 
                                         rgb(255, 255, 255, 0.3));
     backdrop-filter: blur(2rem);
     border-radius: 2rem;
     margin-bottom: 5rem;
-    opacity: 1;
+    /* opacity: 1; */
 }  
 
-.container-active {
+/* .container-active {
     opacity: 1;
-}
+} */
 
 
 .container-todo {
@@ -97,7 +128,7 @@ form button:hover {
 .todo-list {
     width: 70%;
     list-style: none; 
-    margin: 2rem; 
+    margin: 1.5rem; 
 }
 
 .todo {
