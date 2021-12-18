@@ -132,8 +132,21 @@ const removeLocalTodo = (todo) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
+//TODO: Load any saved todos from local storage
+
+const getsaveTodos = (todo) => {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+      todos = [];
+  } else {
+      todos = JSON.parse(localStorage.getItem("todos"));
+  }
+  
+}
+
 // ? EVENT LISTENERS!!!
 todoButton.addEventListener("click", addListAfterClick);
 todoList.addEventListener("click", trashTodo);
 todoOptions.addEventListener('click', todoFilter);
+
 
