@@ -11,19 +11,19 @@ const inputLength = () => {
   return todoInput.value.length;
 }
 
-const addListAfterClick = (e) => {
+const preventBlankTask = (e) => {
   // !Prevent from natural behaviour
-  e.preventDefault(); // ? using this method to prevent function from misbehaving!!
+  e.preventDefault(); // ? use this method to prevent function from misbehaving!!
   // Prevent from creating blank task
   if (inputLength() > 0) {
      addTodo();
   }
 }
 
-const addTodo = (e) => {
-  // !Prevent from natural behaviour // dont put this code here if u want to
+const addTodo = () => {
+  // !Prevent from natural behaviour // don't put this code here if u want to
   // !prevent from creating blank task :)
-  // !e.preventDefault(); //
+  // !e.preventDefault(); // use this code here if ur not using
 
   // Todo div
   const todoDiv = document.createElement("div");
@@ -32,9 +32,9 @@ const addTodo = (e) => {
   // Todo list
   const newTodo = document.createElement("li");
   newTodo.innerText = todoInput.value;
- 
-  // ? Save to local 
-  saveLocalTodo(todoInput.value); 
+
+  // ? Save to local
+  saveLocalTodo(todoInput.value);
 
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
@@ -66,7 +66,7 @@ const trashTodo = (e) => {
     // ? Remove from local
     removeLocalTodo(todo);
     // ParentElement get removed after animation end!!
-    todo.addEventListener("transitionend", (e) => {
+    todo.addEventListener("transitionend", () => {
       todo.remove();
     });
   }
@@ -77,7 +77,7 @@ const trashTodo = (e) => {
   }
 }
 
-// TODO: TODO-FILTER && LOCAL STORAGE SAVE CONFIGRATION
+// TODO: TODO-FILTER && LOCAL STORAGE SAVE CONFIGURATION
 
 const todoFilter = (e) => {
     const todos = todoList.childNodes;
@@ -103,7 +103,7 @@ const todoFilter = (e) => {
     });
 }
 
- // FIXME: make it work on firefox browser!!
+//
 
 // Save todos list to local storage
 const saveLocalTodo = (todo) => {
@@ -134,18 +134,18 @@ const removeLocalTodo = (todo) => {
 
 //TODO: Load any saved todos from local storage
 
-const getsaveTodos = (todo) => {
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-      todos = [];
-  } else {
-      todos = JSON.parse(localStorage.getItem("todos"));
-  }
-  
-}
+// const getSaveTodos = (todo) => {
+//   let todos;
+//   if (localStorage.getItem("todos") === null) {
+//       todos = [];
+//   } else {
+//       todos = JSON.parse(localStorage.getItem("todos"));
+//   }
+//
+// }
 
 // ? EVENT LISTENERS!!!
-todoButton.addEventListener("click", addListAfterClick);
+todoButton.addEventListener("click", preventBlankTask);
 todoList.addEventListener("click", trashTodo);
 todoOptions.addEventListener('click', todoFilter);
 
