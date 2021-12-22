@@ -134,17 +134,41 @@ const removeLocalTodo = (todo) => {
 
 //TODO: Load any saved todos from local storage
 
-// const getSaveTodos = (todo) => {
-//   let todos;
-//   if (localStorage.getItem("todos") === null) {
-//       todos = [];
-//   } else {
-//       todos = JSON.parse(localStorage.getItem("todos"));
-//   }
-//
-// }
+const getSaveTodos = (todo) => {
+  let todos;
+  if (localStorage.getItem("todos") === null) {
+      todos = [];
+  } else {
+      todos = JSON.parse(localStorage.getItem("todos"));
+  }
+ todos.forEach((todo) => {
+     const todoDiv = document.createElement("div");
+     todoDiv.classList.add("todo");
+
+     const newTodo = document.createElement("li");
+     newTodo.innerText = todo;
+
+     newTodo.classList.add("todo-item");
+     todoDiv.appendChild(newTodo);
+     todoInput.value = "";
+
+     const completedButton = document.createElement("button");
+     completedButton.innerHTML = `<i class="fas fa-check"></i>`;
+     completedButton.classList.add("completed");
+     todoDiv.appendChild(completedButton);
+
+     const trashButton = document.createElement("button");
+     trashButton.innerHTML = `<i class="fas fa-trash"><i/>`;
+     trashButton.classList.add("trash");
+     todoDiv.appendChild(trashButton);
+
+     todoList.appendChild(todoDiv);
+ });
+
+}
 
 // ? EVENT LISTENERS!!!
+document.addEventListener("DOMContentLoaded", getSaveTodos);
 todoButton.addEventListener("click", preventBlankTask);
 todoList.addEventListener("click", trashTodo);
 todoOptions.addEventListener('click', todoFilter);
