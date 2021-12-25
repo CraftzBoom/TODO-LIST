@@ -21,9 +21,9 @@ const preventBlankTask = (e) => {
 }
 
 const addTodo = () => {
-  // !Prevent from natural behaviour // don't put this code here if u want to
+  // !Prevent from natural behaviour // don't put this code here if you want to
   // !prevent from creating blank task :)
-  // !e.preventDefault(); // use this code here if ur not using
+  // !e.preventDefault(); 
 
   // Todo div
   const todoDiv = document.createElement("div");
